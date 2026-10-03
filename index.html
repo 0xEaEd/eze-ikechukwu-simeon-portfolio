@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eze Ikechukwu Simeon — Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root { --accent: #1F6F63; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: #F6F5F1; color: #1C1C1A; }
+  a { color: #1C1C1A; text-decoration: none; }
+  a:hover { color: var(--accent); }
+  .serif { font-family: 'Fraunces', serif; }
+  .wrap { width: 100%; max-width: 1440px; margin: 0 auto; }
+  .navlink:hover { color: var(--accent); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 64px; flex-wrap: wrap; gap: 16px; border-bottom: 1px solid #E4E2DA; }
+  .nav-links { display: flex; gap: 32px; font-size: 15px; font-weight: 500; flex-wrap: wrap; }
+  .hero { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; padding: 96px 64px 80px; }
+  .hero-text { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+  .eyebrow { font-size: 15px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; }
+  h1 { font-size: clamp(40px, 6vw, 72px); line-height: 1.05; font-weight: 600; margin: 0; }
+  .lede { font-size: 18px; line-height: 1.6; color: #4A4A45; max-width: 520px; margin: 0; }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .btn-primary { background: var(--accent); color: #FAFAF8; padding: 14px 28px; border-radius: 4px; font-weight: 600; font-size: 15px; }
+  .btn-primary:hover { color: #FAFAF8; opacity: 0.9; }
+  .btn-outline { border: 1px solid #1C1C1A; padding: 14px 28px; border-radius: 4px; font-weight: 600; font-size: 15px; }
+  .photo { flex: 1 1 260px; min-width: 220px; max-width: 320px; aspect-ratio: 1; border-radius: 8px; background: #E4E2DA; display: flex; align-items: center; justify-content: center; color: #8A887F; font-size: 14px; text-align: center; padding: 16px; }
+  .section { padding: 64px; border-top: 1px solid #E4E2DA; display: flex; gap: 64px; flex-wrap: wrap; }
+  .section-label { flex: 1 1 200px; min-width: 160px; }
+  .section-label .serif { font-size: 28px; font-weight: 600; }
+  .section-body { flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px; max-width: 680px; }
+  .section-body p { font-size: 17px; line-height: 1.7; color: #33332E; margin: 0; }
+  .skills-row { padding: 0 64px 64px; display: flex; gap: 64px; flex-wrap: wrap; }
+  .skills-spacer { flex: 1 1 200px; min-width: 160px; }
+  .skills-list { flex: 999 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px; max-width: 680px; }
+  .skill-pill { padding: 8px 16px; border: 1px solid #D8D6CC; border-radius: 999px; font-size: 14px; font-weight: 500; color: #33332E; }
+  .role { display: flex; flex-direction: column; gap: 4px; padding-bottom: 28px; border-bottom: 1px solid #ECEAE2; }
+  .role:last-child { border-bottom: none; padding-bottom: 0; }
+  .role-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .role-title { font-size: 17px; font-weight: 600; }
+  .role-period { font-size: 14px; color: #8A887F; }
+  .role-org { font-size: 15px; font-weight: 500; color: var(--accent); }
+  .role-desc { font-size: 15px; line-height: 1.6; color: #4A4A45; margin: 6px 0 0; }
+  .projects { padding: 64px; border-top: 1px solid #E4E2DA; }
+  .projects-title { font-size: 28px; font-weight: 600; margin-bottom: 40px; }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  @media (max-width: 860px) { .projects-grid { grid-template-columns: 1fr; } }
+  .project-card { display: flex; flex-direction: column; gap: 12px; border: 1px solid #E4E2DA; border-radius: 8px; padding: 24px; background: #FBFAF7; }
+  .project-image { width: 100%; aspect-ratio: 16/10; border-radius: 4px; background: #E4E2DA; display: flex; align-items: center; justify-content: center; color: #8A887F; font-size: 13px; }
+  .project-title { font-size: 17px; font-weight: 600; }
+  .project-desc { font-size: 14px; line-height: 1.6; color: #4A4A45; margin: 0; flex-grow: 1; }
+  .project-link { font-size: 14px; font-weight: 600; color: var(--accent); }
+  .contact { padding: 96px 64px; border-top: 1px solid #E4E2DA; background: #EFEDE5; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+  .contact-title { font-size: 32px; font-weight: 600; }
+  .contact-lede { font-size: 16px; line-height: 1.6; color: #4A4A45; max-width: 480px; margin: 0; }
+  .contact-links { display: flex; gap: 32px; flex-wrap: wrap; font-size: 15px; font-weight: 600; }
+  .contact-links a { color: var(--accent); }
+  .footer { padding: 24px 64px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 13px; color: #8A887F; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="nav">
+    <div class="serif" style="font-size: 20px; font-weight: 600; letter-spacing: 0.01em;">Eze Ikechukwu Simeon</div>
+    <div class="nav-links">
+      <a class="navlink" href="#about">About</a>
+      <a class="navlink" href="#work">Experience</a>
+      <a class="navlink" href="#projects">Projects</a>
+      <a class="navlink" href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-text">
+      <div class="eyebrow">[YOUR ROLE / PROFESSION]</div>
+      <h1 class="serif">Eze Ikechukwu<br>Simeon</h1>
+      <p class="lede">[A short, confident line about who you are and what you do — e.g. your field, specialty, and what you're currently focused on.]</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn-primary">Get in touch</a>
+        <a href="#projects" class="btn-outline">View work</a>
+      </div>
+    </div>
+    <div class="photo">[PHOTO]</div>
+  </div>
+
+  <div class="section" id="about">
+    <div class="section-label"><div class="serif">About</div></div>
+    <div class="section-body">
+      <p>[Write two or three sentences here about your background, what drives your work, and what you're best known for. Replace this placeholder with your real story.]</p>
+      <p>[Add a second paragraph — current focus, notable experience, or what you're looking for next.]</p>
+    </div>
+  </div>
+
+  <div class="skills-row">
+    <div class="skills-spacer"></div>
+    <div class="skills-list">
+      <div class="skill-pill">[Skill One]</div>
+      <div class="skill-pill">[Skill Two]</div>
+      <div class="skill-pill">[Skill Three]</div>
+      <div class="skill-pill">[Skill Four]</div>
+      <div class="skill-pill">[Skill Five]</div>
+      <div class="skill-pill">[Skill Six]</div>
+    </div>
+  </div>
+
+  <div class="section" id="work">
+    <div class="section-label"><div class="serif">Experience</div></div>
+    <div class="section-body">
+      <div class="role">
+        <div class="role-top"><div class="role-title">[Job Title]</div><div class="role-period">[Year — Present]</div></div>
+        <div class="role-org">[Company Name]</div>
+        <p class="role-desc">[One or two lines describing responsibilities and impact in this role.]</p>
+      </div>
+      <div class="role">
+        <div class="role-top"><div class="role-title">[Job Title]</div><div class="role-period">[Year — Year]</div></div>
+        <div class="role-org">[Company Name]</div>
+        <p class="role-desc">[One or two lines describing responsibilities and impact in this role.]</p>
+      </div>
+      <div class="role">
+        <div class="role-top"><div class="role-title">[Job Title]</div><div class="role-period">[Year — Year]</div></div>
+        <div class="role-org">[Company Name]</div>
+        <p class="role-desc">[One or two lines describing responsibilities and impact in this role.]</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects" id="projects">
+    <div class="serif projects-title">Projects</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">[IMAGE]</div>
+        <div class="project-title">[Project One]</div>
+        <p class="project-desc">[Short description of the project and the problem it solved.]</p>
+        <a href="#" class="project-link">View project &rarr;</a>
+      </div>
+      <div class="project-card">
+        <div class="project-image">[IMAGE]</div>
+        <div class="project-title">[Project Two]</div>
+        <p class="project-desc">[Short description of the project and the problem it solved.]</p>
+        <a href="#" class="project-link">View project &rarr;</a>
+      </div>
+      <div class="project-card">
+        <div class="project-image">[IMAGE]</div>
+        <div class="project-title">[Project Three]</div>
+        <p class="project-desc">[Short description of the project and the problem it solved.]</p>
+        <a href="#" class="project-link">View project &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact" id="contact">
+    <div class="serif contact-title">Let's work together</div>
+    <p class="contact-lede">[Add a short invitation to reach out — for freelance work, collaboration, or opportunities.]</p>
+    <div class="contact-links">
+      <a href="mailto:you@example.com">[YOUR EMAIL]</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">[OTHER LINK]</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>&copy; 2026 Eze Ikechukwu Simeon</div>
+    <div>Built with care.</div>
+  </div>
+
+</div>
+</body>
+</html>
