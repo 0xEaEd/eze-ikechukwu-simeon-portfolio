@@ -52,5 +52,5 @@ h1 { font-size: clamp(40px, 6vw, 72px); line-height: 1.05; font-weight: 600; mar
 .contact-title { font-size: 32px; font-weight: 600; }
 .contact-lede { font-size: 16px; line-height: 1.6; color: #4A4A45; max-width: 480px; margin: 0; }
 .contact-links { display: flex; gap: 32px; flex-wrap: wrap; font-size: 15px; font-weight: 600; }
-.contact-links a { color: var(--accent); }
+.contact-links a { color: var(--accent); display: inline-flex; align-items: center; gap: 10px; }
 .footer { padding: 24px 64px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 13px; color: #8A887F; border-top: 1px solid #E4E2DA; }
